@@ -1,0 +1,17 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "enabledManagers": ["helm-values", "dockerfile", "gradle", "regex","gomod" ],
+    "autoApprove": true,
+    "customManagers": [
+      {
+        "fileMatch": ["^Makefile$"],
+        "matchStringsStrategy": "any",
+        "matchStrings": [
+          "PYTHON_BASE_IMAGE = (?<currentValue>.*?)\n"
+        ],
+        "datasourceTemplate": "artifactory",
+        "depNameTemplate": "kiranrenovate.jfrog.io/docker-remote"
+  
+  }
+  ]
+  }
